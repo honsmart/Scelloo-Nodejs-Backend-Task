@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable("companies", {
+    await queryInterface.createTable("coupon", {
       id:{
         allowNull: false,
         primaryKey: true,
