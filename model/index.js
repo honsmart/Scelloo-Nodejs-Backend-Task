@@ -13,7 +13,8 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(String(process.env[config.use_env_variable],), config);
+  // sequelize = new Sequelize(String(process.env[config.use_env_variable],), config);
+  sequelize = new Sequelize("d3t8fc3k83a2g5", "lyxrqhhnusjets", "ba83dd9b9dc43ecd5a08b5c7bf014d649f98dfb720ec6805dd6b78827d0a8771", config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
