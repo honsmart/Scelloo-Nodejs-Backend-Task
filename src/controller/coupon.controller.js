@@ -24,9 +24,9 @@ exports.coupon = async (req, res) => {
     percentageOff = coupon.percentageOff;
     /*
     discountType
-    1 represent fixed amount off the total price 
-    2 represent Percent-off total price
-    3 represent Percent off or fixed amount off the total price, whichever results in the greatest discounts
+    - represent fixed amount off the total price 
+    - represent Percent off or fixed amount off the total price, whichever results in the greatest discounts
+    - represent Percent-off total price
     */
     couponCondition = calCouponType(couponType,minItem,minPrice,items?.length,totalCartPrice);
     if(couponCondition?.success){
@@ -47,10 +47,7 @@ exports.coupon = async (req, res) => {
     
    
    function calCouponType(couponType,minItem,minPrice,totalItem,totalPrice){
-    // couponType
-    // 1 represent ONLY PRICE TEST
-    // 2 represent ONLY QUANTITY TEST
-    // 3 represent PRICE TEST & QUANTITY TEST
+
     if(couponType === "price" && totalPrice >= minPrice){
       return {msg:"Passed Price Test", success:true}
     }else if(couponType === "quantity" && totalItem >= minItem){
